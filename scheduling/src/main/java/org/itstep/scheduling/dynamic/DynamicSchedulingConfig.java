@@ -14,7 +14,7 @@ import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 
 @Configuration
-@ComponentScan("com.baeldung.scheduling.dynamic")
+@ComponentScan("org.itstep.scheduling")
 @EnableScheduling
 public class DynamicSchedulingConfig implements SchedulingConfigurer {
 

@@ -10,7 +10,7 @@ import org.springframework.retry.policy.SimpleRetryPolicy;
 import org.springframework.retry.support.RetryTemplate;
 
 @Configuration
-@ComponentScan(basePackages = "com.baeldung.springretry")
+@ComponentScan(basePackages = "org.itstep.springretry")
 @EnableRetry
 @PropertySource("classpath:retryConfig.properties")
 public class AppConfig {

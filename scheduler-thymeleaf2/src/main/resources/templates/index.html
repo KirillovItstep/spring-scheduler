@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<header>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scheduler</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/w3-css/4.1.0/w3.css">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</header>
+<body>
+<div class="w3-container w3-margin">
+    <p>Repeatable event: <span class="w3-badge w3-green" id="repeatableEvent" th:text="${count}"></span></p>
+</div>
+<div class="w3-container w3-margin">
+    <p>Once updated event: <span th:attr="class=${once} ? 'w3-tag w3-red' : 'w3-tag w3-green'" id="onceEvent" th:text="${once} ? 'Done':'Not ready'" ></span></p>
+</div>
+
+<script  th:inline="javascript">
+    var count=[[${count}]];
+    console.log(count);
+
+    /*
+    //Обновить всю страницу
+    var x = setInterval(function() {
+        location.reload();
+    }, 1000);
+
+     */
+
+    //Обновить только badge
+    function updateEventCount() {
+        $.get("/count").done(function(fragment) { // get from controller
+            $("#repeatableEvent").replaceWith(fragment); // update snippet of page
+        });
+    }
+
+    //Обновить элемент однократно
+    function updateEventOnce() {
+        $.get("/once").done(function(fragment) { // get from controller
+            $("#onceEvent").replaceWith(fragment); // update snippet of page
+        });
+    }
+
+    var x = setInterval(function() {
+        updateEventCount();
+        updateEventOnce();
+    }, 1000);
+</script>
+</body>
+</html>

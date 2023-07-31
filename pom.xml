@@ -11,6 +11,7 @@
     <modules>
         <module>scheduler-demo</module>
         <module>scheduling</module>
+        <module>scheduler-thymeleaf2</module>
     </modules>
 
 

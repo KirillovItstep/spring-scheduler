@@ -11,7 +11,7 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 @Configuration
 @EnableScheduling
-@ComponentScan("com.baeldung.scheduling")
+@ComponentScan("org.itstep.scheduling")
 @PropertySource("classpath:springScheduled.properties")
 public class SpringSchedulingConfig {
 
