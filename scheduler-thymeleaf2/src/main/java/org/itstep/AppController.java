@@ -43,7 +43,7 @@ public class AppController {
         LOGGER.info("repeatable event: "+ LocalDateTime.now().toEpochSecond(ZoneOffset.UTC));
     }
 
-    //Событие произойдет однократно через 10 с
+    //Событие произойдет однократно через 10 с после запуска spring
     @Scheduled(initialDelay = 1000*20, fixedDelay = Long.MAX_VALUE)
     @Async
     public void checkOnceEvent() {
